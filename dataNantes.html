@@ -4,54 +4,52 @@
 	<meta charset="UTF-8">
 	<title>Parking Publics Nantes</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-	<style type="text/css">
-		.w3-card {
-  			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  			transition: 0.3s;
-  			width:250px;
-		}
-		.w3-card:hover {
-  			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-		}
-		.container {
-  			padding: 2px 16px;
-		}
-
-		.search-container button {
-  			padding: 6px 10px;
-  			margin-top: 8px;
-  			margin-right: 16px;
-  			background: #ddd;
-  			font-size: 17px;
-  			border: none;
-  			cursor: pointer;
-		}
-
-		.search-container button:hover {
-  			background: #ccc;
-		}
-	</style>
+	<style>
+  #demo {
+	  font-family: 'Helvetica', Arial, sans-serif;
+	  text-align: center;
+	}
+	a {
+	  text-decoration: none;
+	  color: #f66;
+	}
+	li {
+	  line-height: 1.5em;
+	  margin-bottom: 20px;
+	}
+	.author, .date {
+	  font-weight: bold;
+	}
+	body{
+		margin:0;
+	}
+	h1{
+		font-family:'Arial';
+	}
+	
+  </style>
 	
 	<div id="demo">
 		<h1>Parkings Public Nantes</h1>
-		<div class="search-container">
-			<input type="text" placeholder="Search..">
-			<button type="submit">Rechercher</button>
-		</div>
-		<ul>
-	    	<li v-for="record in records">
-	    		<div class="w3-card">
-					<div class=container style="padding: 2px 16px;">
-	    				<p>Lieu: <span class="grp_nom">{{record.fields.grp_nom}}</span></p>
-	    				<p><span class="grp_disponible">{{record.fields.grp_disponible}}</span>/<span class="grp_exploitation">{{record.fields.grp_exploitation}}</span></p>
-	    				<p><span></span></p>
-	    			</div>
-				</div>	
-	    	</li>
-	    </ul>	
+		<ul style="list-style-type: none; padding-right: 5%; padding-left: 10%;">
+			<div class="row">
+	    		<li v-for="record in records">
+					<div class="col-2">
+						<div class="card" style="width: 22rem; height: 15rem;">
+							<div class="card-body">
+								<h5 class="card-title" ><pre>{{record.fields.grp_nom}}</pre></h5><!--Rajoutez fields + le nom du champ pour afficher une valeur spécifique-->
+         						<p class="card-text"><pre>{{record.fields.grp_disponible}}/{{record.fields.grp_exploitation}}</pre>
+         						Places Disponible</p>
+
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+		</ul>	
 	</div>
 
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
